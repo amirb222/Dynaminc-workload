@@ -97,3 +97,6 @@ ssh -i $KEY_PEM -o "StrictHostKeyChecking=no" -o "ConnectionAttempts=10" ubuntu@
     nohup flask run --host 0.0.0.0 &>/dev/null &
     exit
 EOF
+
+echo "Executing worker.py with IP addresses..."
+python worker.py --firstInstIP $PUBLIC_IP_1 --secondInstIP $PUBLIC_IP_2
