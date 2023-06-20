@@ -1,5 +1,3 @@
-// change tha ami and the t2.micro change if necessary ------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!----------------------------------------------amir
-
 KEY_NAME="cloud-course-`date +'%N'`"
 KEY_PEM="$KEY_NAME.pem"
 
