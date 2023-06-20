@@ -28,12 +28,12 @@ aws ec2 authorize-security-group-ingress --group-name "$SEC_GRP" --port 22 --pro
 echo "Setup rule allowing HTTP (port 5000) access to all IPs"
 aws ec2 authorize-security-group-ingress --group-name "$SEC_GRP" --port 5000 --protocol tcp --source-group "$SEC_GRP" --cidr "$MY_IP"/32
 
-UBUNTU_20_04_AMI="ami-00aa9d3df94c6c354"
+UBUNTU_20_04_AMI="ami-01dd271720c1ba44f"
 
 echo "Creating Ubuntu 20.04 instance 1..."
 RUN_INSTANCE_1=$(aws ec2 run-instances   \
     --image-id $UBUNTU_20_04_AMI        \
-    --instance-type t3.micro            \
+    --instance-type t2.micro            \
     --key-name $KEY_NAME                \
     --security-groups $SEC_GRP)
 
@@ -53,7 +53,7 @@ echo "New instance 1 $INSTANCE_ID_1 @ $PUBLIC_IP_1"
 echo "Creating Ubuntu 20.04 instance 2..."
 RUN_INSTANCE_2=$(aws ec2 run-instances   \
     --image-id $UBUNTU_20_04_AMI        \
-    --instance-type t3.micro            \
+    --instance-type t2.micro            \
     --key-name $KEY_NAME                \
     --security-groups $SEC_GRP)
 
